@@ -1,0 +1,146 @@
+/**
+ * styles/globals.css
+ *
+ * Estilos globais da aplicação.
+ * Contém: variáveis CSS, reset, tipografia base e animações reutilizáveis.
+ */
+
+/* ── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600&display=swap');
+
+/* ── Variáveis de tema (cyberpunk) ───────────────────────────────────────── */
+:root {
+  --color-cyan:    #00f5ff;
+  --color-magenta: #ff00aa;
+  --color-yellow:  #ffe600;
+  --color-green:   #00ff88;
+
+  --bg-primary:    #050810;  /* fundo principal */
+  --bg-secondary:  #080d1a;  /* fundo alternativo (seções pares) */
+  --bg-panel:      rgba(0, 245, 255, 0.04); /* fundo de cards */
+
+  --border-default: rgba(0, 245, 255, 0.15);
+  --border-hover:   rgba(0, 245, 255, 0.35);
+
+  --text-primary: #c8ddf0;
+  --text-dim:     #5a7a90;
+
+  --font-display: 'Orbitron', monospace;      /* títulos principais */
+  --font-mono:    'Share Tech Mono', monospace; /* labels, tags, código */
+  --font-body:    'Rajdhani', sans-serif;      /* textos corridos */
+}
+
+/* ── Reset básico ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none; /* cursor customizado via JS */
+}
+
+/* ── Cursor oculto em elementos clicáveis ────────────────────────────────── */
+a, button, [role="button"] {
+  cursor: none;
+}
+
+/* ── Scrollbar personalizada ─────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--color-cyan); }
+
+/* ── Overlay de scanlines (efeito CRT) ───────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ── Grid de fundo (perspectiva cyber) ───────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Animações globais reutilizáveis ─────────────────────────────────────── */
+
+/* Piscar — usado no indicador "ONLINE" */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Linha vertical pulsando — decoração hero */
+@keyframes scanV {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
+
+/* Shimmer — placeholder de avatar */
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+/* Efeito glitch — animação da fatia superior */
+@keyframes glitch-top {
+  0%, 90%, 100% { transform: translate(0);        opacity: 0; }
+  92%           { transform: translate(-3px, 1px); opacity: 0.8; }
+  95%           { transform: translate(3px, -1px); opacity: 0.6; }
+  98%           { transform: translate(-2px, 2px); opacity: 0.4; }
+}
+
+/* Efeito glitch — animação da fatia inferior */
+@keyframes glitch-bottom {
+  0%, 90%, 100% { transform: translate(0);        opacity: 0; }
+  92%           { transform: translate(3px, -1px); opacity: 0.8; }
+  95%           { transform: translate(-3px, 1px); opacity: 0.6; }
+  98%           { transform: translate(2px, -2px); opacity: 0.4; }
+}
+
+/* Fade + subida — animação de entrada ao scrollar */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Classe utilitária: animação de entrada ──────────────────────────────── */
+.animate-fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}

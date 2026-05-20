@@ -1,0 +1,148 @@
+/**
+ * styles/layout.css
+ *
+ * Estilos estruturais: navegação, seções, grids de página e rodapé.
+ */
+
+/* ── Navegação fixa no topo ──────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 60px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5, 8, 16, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-default);
+}
+
+/* Logo da nav */
+.nav__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--color-cyan);
+  text-decoration: none;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px var(--color-cyan);
+}
+.nav__logo span { color: var(--color-magenta); }
+
+/* Lista de links */
+.nav__links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+.nav__links a {
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: color 0.2s, text-shadow 0.2s;
+  position: relative;
+}
+/* Prefixo ">" que aparece no hover */
+.nav__links a::before {
+  content: '> ';
+  color: var(--color-cyan);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.nav__links a:hover {
+  color: var(--color-cyan);
+  text-shadow: 0 0 10px var(--color-cyan);
+}
+.nav__links a:hover::before { opacity: 1; }
+
+/* Indicador "ONLINE" com bolinha pulsante */
+.nav__status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-green);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav__status::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--color-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-green);
+  animation: blink 1.4s infinite;
+}
+
+/* ── Seções genéricas ────────────────────────────────────────────────────── */
+.section {
+  padding: 100px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cabeçalho de seção (número + título + linha) */
+.section__header {
+  margin-bottom: 70px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.section__num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-magenta);
+  letter-spacing: 3px;
+}
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+/* Linha que cresce até preencher o espaço restante */
+.section__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border-default), transparent);
+}
+
+/* ── Rodapé ──────────────────────────────────────────────────────────────── */
+.footer {
+  padding: 30px 60px;
+  border-top: 1px solid var(--border-default);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.footer__copy {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+}
+.footer__copy span { color: var(--color-cyan); }
+.footer__tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 3px;
+}
+
+/* ── Responsividade ──────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .nav           { padding: 0 24px; }
+  .nav__links    { gap: 20px; }
+  .nav__status   { display: none; }
+  .section       { padding: 80px 24px; }
+  .footer        { flex-direction: column; gap: 12px; text-align: center; }
+}

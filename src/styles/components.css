@@ -1,0 +1,190 @@
+/**
+ * styles/components.css
+ *
+ * Estilos dos componentes de UI reutilizáveis:
+ * botões, chips de skill, cards de projeto, campos de formulário.
+ */
+
+/* ── Botões ──────────────────────────────────────────────────────────────── */
+
+/* Base compartilhada entre botões */
+.btn {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  background: transparent;
+  border: 1px solid;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s;
+  /* corte diagonal nas pontas (estética cyberpunk) */
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  display: inline-block;
+}
+
+/* Preenchimento que desliza da esquerda no hover */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+.btn:hover::before { transform: translateX(0); }
+
+/* Variante cyan (ação principal) */
+.btn-cyan {
+  color: var(--color-cyan);
+  border-color: var(--color-cyan);
+}
+.btn-cyan::before { background: var(--color-cyan); }
+.btn-cyan:hover   { color: var(--bg-primary); }
+
+/* Variante magenta (ação secundária) */
+.btn-magenta {
+  color: var(--color-magenta);
+  border-color: var(--color-magenta);
+}
+.btn-magenta::before { background: var(--color-magenta); }
+.btn-magenta:hover   { color: var(--bg-primary); }
+
+/* ── Chip de habilidade ──────────────────────────────────────────────────── */
+.skill-chip {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  padding: 14px 16px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  transition: all 0.2s;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.skill-chip:hover {
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
+  background: rgba(0, 245, 255, 0.08);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.1);
+}
+/* Chip destacado (magenta) para skills em destaque */
+.skill-chip--highlight {
+  border-color: rgba(255, 0, 170, 0.3);
+  color: var(--color-magenta);
+}
+.skill-chip--highlight:hover {
+  background: rgba(255, 0, 170, 0.08);
+  box-shadow: 0 0 20px rgba(255, 0, 170, 0.1);
+}
+
+/* ── Card de projeto ─────────────────────────────────────────────────────── */
+.project-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+/* Linha de gradiente que aparece no hover (topo do card) */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--color-cyan), var(--color-magenta));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.project-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+.project-card:hover::before { transform: scaleX(1); }
+
+/* Tags dentro do card */
+.project-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  color: var(--color-cyan);
+  text-transform: uppercase;
+}
+.project-tag--alt {
+  border-color: rgba(255, 0, 170, 0.2);
+  color: var(--color-magenta);
+}
+
+/* Links dentro do card */
+.project-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.project-link:hover     { color: var(--color-cyan); }
+.project-link--alt:hover { color: var(--color-magenta); }
+
+/* ── Campos de formulário ─────────────────────────────────────────────────── */
+.field-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.field-input,
+.field-textarea {
+  width: 100%;
+  background: rgba(0, 245, 255, 0.03);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  resize: none;
+}
+.field-input:focus,
+.field-textarea:focus {
+  border-color: var(--color-cyan);
+  background: rgba(0, 245, 255, 0.06);
+}
+.field-textarea { min-height: 130px; }
+
+/* ── Link social (contato) ───────────────────────────────────────────────── */
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 14px 20px;
+  border: 1px solid var(--border-default);
+  transition: all 0.2s;
+}
+.social-link:hover {
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
+  background: rgba(0, 245, 255, 0.05);
+  padding-left: 28px;
+}

@@ -28,7 +28,7 @@ export default function Hero() {
         top: 0, right: 0,
         width: "55%", height: "100%",
         background: `
-          radial-gradient(ellipse at 70% 50%, rgba(255,0,170,0.07) 0%, transparent 60%),
+          radial-gradient(ellipse at 70% 50%, rgba(236, 7, 7, 0.07) 0%, transparent 60%),
           radial-gradient(ellipse at 90% 20%, rgba(0,245,255,0.06) 0%, transparent 50%)
         `,
         pointerEvents: "none",
@@ -86,9 +86,7 @@ export default function Hero() {
           color: "var(--text-dim)",
           letterSpacing: 2,
           marginBottom: 24,
-        }}>
-          ↑ edite seu nome em{" "}
-          <span style={{ color: "var(--color-cyan)" }}>src/data/portfolio.ts</span>
+        }}>      
         </p>
 
         {/* Sub-tagline */}

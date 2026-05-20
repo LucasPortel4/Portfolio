@@ -40,19 +40,13 @@ export const stats = [
 // ─── Habilidades técnicas ─────────────────────────────────────────────────────
 // highlight: true = destaca com cor magenta
 export const skills = [
-  { name: "React",      highlight: false },
-  { name: "Next.js",    highlight: false },
-  { name: "Node.js",    highlight: false },
-  { name: "TypeScript", highlight: true  },
-  { name: "PostgreSQL", highlight: false },
   { name: "Docker",     highlight: false },
   { name: "Python",     highlight: true  },
   { name: "PHP",        highlight: false },
-  { name: "MongoDB",    highlight: false },
   { name: "Laravel",    highlight: false },
-  { name: "HTML",       highlight: false },
-  { name: "JavaScript", highlight: false },
-  { name: "CSS",        highlight: false },
+  { name: "HTML",       highlight: true  },
+  { name: "JavaScript", highlight: true  },
+  { name: "CSS",        highlight: true  },
 ];
 
 // ─── Projetos ─────────────────────────────────────────────────────────────────
@@ -73,15 +67,6 @@ export const projects = [
     desc:   "Sistema de gerenciamento de chamados para suporte técnico. Permite criar, atribuir e acompanhar tickets de atendimento, com notificações em tempo real e relatórios de desempenho.",
     tags:   ["Next.js", "TypeScript", "Docker"],
     github: "https://github.com/LucasPortel4/Sistema-Chamados",
-    demo:   "https://sistema-chamados.vercel.app/",
-  },
-  {
-    id:     "PRJ-003",
-    year:   "2025",
-    title:  "Nome do Projeto",
-    desc:   "Descrição breve do projeto. O que ele faz, qual problema resolve e qual impacto causou.",
-    tags:   ["Python", "Redis", "REST API"],
-    github: "",
     demo:   "",
   },
 ];

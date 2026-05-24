@@ -12,7 +12,7 @@ export const person = {
   tagline: "// CONSTRUINDO O FUTURO",
   bio: [
     // Cada string vira um parágrafo na seção "Sobre"
-    "Desenvolvedor Full Stack com foco em criar soluções completas — do banco de dados à interface. Acredito que bom software precisa ser rápido, escalável e visualmente impactante.",
+    "Desenvolvedor Vibing Code Back-End com foco em criar soluções completas — do banco de dados à interface. Acredito que bom software precisa ser rápido, escalável e visualmente impactante.",
     "Trabalho com arquiteturas modernas, APIs RESTful e interfaces reativas. Meu objetivo é entregar produtos que funcionem de verdade e que deixem as pessoas impressionadas.",
     "Sempre explorando novas tecnologias, padrões de design e formas de escrever código mais limpo e eficiente.",
   ],

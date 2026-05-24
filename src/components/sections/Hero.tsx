@@ -61,7 +61,7 @@ export default function Hero() {
           gap: 12,
         }}>
           <span style={{ width: 40, height: 1, background: "var(--color-magenta)", boxShadow: "0 0 8px var(--color-magenta)", display: "block" }} />
-          FULL STACK DEVELOPER
+          Back-end Developer
         </div>
 
         {/* Nome com efeito glitch */}
@@ -110,7 +110,7 @@ export default function Hero() {
           marginBottom: 40,
           fontWeight: 300,
         }}>
-          Desenvolvedor Full Stack apaixonado por criar sistemas que unem{" "}
+          Desenvolvedor Back-end apaixonado por criar sistemas que unem{" "}
           <strong style={{ color: "var(--color-cyan)" }}>performance</strong> e{" "}
           <strong style={{ color: "var(--color-magenta)" }}>experiência visual</strong>.
           Do back-end ao front-end, transformo ideias em código real.

@@ -8,7 +8,7 @@
 // ─── Informações pessoais ────────────────────────────────────────────────────
 export const person = {
   name: "Lucas Portela",
-  role: "Full Stack Developer",
+  role: "Back-end Developer",
   tagline: "// CONSTRUINDO O FUTURO",
   bio: [
     // Cada string vira um parágrafo na seção "Sobre"
